@@ -1,0 +1,63 @@
+{
+  "name": "Java 22",
+  "dockerComposeFile": [
+    "../compose.yaml",
+    "./compose.override.yaml"
+  ],
+  "forwardPorts": [
+    "80:80",
+    "35729:35729",
+    "8080:8080",
+    "3306:3306",
+    "6379:6379",
+  ],
+  "portsAttributes": {
+    "80": {
+      "label": "nginx"
+    },
+    "8080": {
+      "label": "app"
+    },
+    "35729": {
+      "label": "livereload"
+    },
+    "3306": {
+      "label": "mysql"
+    },
+    "6379": {
+      "label": "redis"
+    }
+  },
+  "service": "app",
+  "features": {
+    "ghcr.io/devcontainers/features/git:1": {
+      "ppa": "false"
+    },
+   "ghcr.io/devcontainers/features/sshd:1": {
+        "version": "latest"
+    }
+  },
+  "mounts": [
+    "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind"
+  ],
+  "postStartCommand": [
+    "bash",
+    "-c",
+    "sudo chown -R spring:spring /var/run/docker.sock"
+  ],
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.shell.linux": "/bin/bash",
+        "terminal.integrated.defaultProfile.osx": "zsh",
+        "terminal.integrated.defaultProfile.linux": "bash",
+        "terminal.integrated.defaultProfile.windows": "PowerShell"
+      },
+      "extensions": [
+        "vscjava.vscode-java-pack"
+      ]
+    }
+  },
+  "remoteUser": "spring",
+  "containerUser": "spring"
+}

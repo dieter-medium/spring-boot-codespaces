@@ -1,0 +1,4 @@
+[mariadb]
+# orig
+# host-cache-size=0
+# skip-name-resolve

@@ -1,0 +1,24 @@
+services:
+  db:
+    ports: !reset []
+    volumes: !reset []
+    network_mode: service:app
+
+  redis:
+    ports: !reset []
+    network_mode: service:app
+
+  nginx:
+    ports: !reset []
+    network_mode: service:app
+
+  app:
+    build:
+      context: .devcontainer
+      dockerfile: Dockerfile
+
+    command: sleep infinity
+    user: "1010"
+
+    labels:
+      org.springframework.boot.ignore: true

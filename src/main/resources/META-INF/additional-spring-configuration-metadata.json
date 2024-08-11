@@ -1,0 +1,10 @@
+{
+  "properties": [
+    {
+      "name": "spring.docker.compose.devcontainer.enabled",
+      "type": "java.lang.Boolean",
+      "description": "Enable or disable Docker Compose support within devcontainers.",
+      "defaultValue": false
+    }
+  ]
+}

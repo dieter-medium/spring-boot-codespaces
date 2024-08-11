@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html layout:decorate="~{layouts/application.html}" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Blog Posts</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <h1>Blog Posts</h1>
+    <a class="btn btn-primary" th:href="@{/blog-posts/new}">New Blog Post</a>
+    <ul class="list-group mt-3">
+        <li class="list-group-item" th:each="blogPost : ${blogPosts}">
+            <a th:href="@{/blog-posts/{id}(id=${blogPost.id})}" th:text="${blogPost.title}"></a>
+            <a class="btn btn-sm btn-secondary" th:href="@{/blog-posts/{id}/edit(id=${blogPost.id})}">Edit</a>
+            <form method="post" style="display:inline" th:action="@{/blog-posts/{id}/delete(id=${blogPost.id})}">
+                <button class="btn btn-sm btn-danger" type="submit">Delete</button>
+            </form>
+        </li>
+    </ul>
+</div>
+</body>
+</html>

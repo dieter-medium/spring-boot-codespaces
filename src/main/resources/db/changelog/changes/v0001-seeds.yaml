@@ -1,0 +1,56 @@
+databaseChangeLog:
+  - changeSet:
+      id: 7
+      author: dieter
+      context: dev
+      changes:
+        - loadData:
+            file: classpath:db/changelog/seeds/authors.csv
+            tableName: authors
+
+  - changeSet:
+      id: 8
+      author: dieter
+      context: dev
+      changes:
+        - loadData:
+            encoding: "UTF-8"
+            quotchar: "\""
+            separator: ","
+            file: classpath:db/changelog/seeds/blog_posts.csv
+            tableName: blog_posts
+            columns:
+              - column:
+                  name: id
+                  type: NUMERIC
+              - column:
+                  name: title
+                  type: VARCHAR
+              - column:
+                  name: content
+                  type: VARCHAR
+              - column:
+                  name: author_id
+                  type: NUMERIC
+
+  - changeSet:
+      id: 9
+      author: dieter
+      context: dev
+      changes:
+        - loadData:
+            file: classpath:db/changelog/seeds/comments.csv
+            tableName: comments
+            columns:
+              - column:
+                  name: id
+                  type: NUMERIC
+              - column:
+                  name: post_id
+                  type: NUMERIC
+              - column:
+                  name: author_id
+                  type: NUMERIC
+              - column:
+                  name: content
+                  type: VARCHAR

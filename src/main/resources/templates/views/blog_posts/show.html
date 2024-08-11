@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html layout:decorate="~{layouts/application.html}" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>View Blog Post</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <div class="card mt-4">
+        <div class="card-header">
+            <h1 th:text="${blogPost.title}">Blog Post Title</h1>
+        </div>
+        <div class="card-body">
+            <p class="card-text" th:text="${blogPost.content}">Blog Post Content</p>
+            <a class="btn btn-primary" th:href="@{/blog-posts}">Back to list</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>
