@@ -1,3 +1,4 @@
+name: teama-app-spring-docker-compose
 services:
   db:
     image: mariadb:latest

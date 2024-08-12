@@ -1,3 +1,5 @@
+name: teama-app-devcontainer
+
 services:
   db:
     ports: !reset []
